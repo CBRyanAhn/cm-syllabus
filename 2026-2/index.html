@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>건설관리 (Construction Management) 2026학년도 2학기 강의계획서</title>
+<style>
+:root{
+  color-scheme:light dark;
+  --bg:#ffffff; --fg:#1b1b1b; --muted:#5f6672; --line:#dcdfe4;
+  --accent:#0b4f8f; --thead:#f2f4f7; --card:#fafbfc;
+  --now-bg:#fff6e0; --now-line:#c07a00; --now-fg:#7a4a00;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#14171b; --fg:#e4e6e9; --muted:#9aa2ae; --line:#3f4650;
+    --accent:#7fb6f0; --thead:#1e232a; --card:#191d23;
+    --now-bg:#3a2e10; --now-line:#d69a2a; --now-fg:#f2d391;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0 auto; max-width:900px; padding:30px 22px 64px;
+  background:var(--bg); color:var(--fg);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:17px; line-height:1.7; word-break:keep-all; overflow-wrap:break-word;
+}
+h1{font-size:1.85em; line-height:1.3; margin:0 0 .45em; letter-spacing:-.01em}
+h2{font-size:1.35em; margin:2.2em 0 .6em; padding-bottom:.25em; border-bottom:2px solid var(--line)}
+h3{font-size:1.12em; margin:1.9em 0 .5em}
+h4{font-size:1em; margin:1.4em 0 .4em; color:var(--muted)}
+p{margin:.7em 0}
+a{color:var(--accent)}
+hr{border:0; border-top:1px solid var(--line); margin:2.4em 0}
+ul,ol{padding-left:1.35em}
+li{margin:.3em 0}
+h1+p{color:var(--muted); font-size:.95em; line-height:1.65}
+h1+p strong{color:var(--fg)}
+blockquote{margin:1.3em 0; padding:.7em 1.1em; border-left:4px solid var(--accent);
+  background:var(--card); border-radius:0 6px 6px 0}
+blockquote p{margin:.3em 0}
+code{background:var(--thead); padding:.1em .35em; border-radius:4px; font-size:.92em}
+
+/* ---- 목차 ---- */
+#toc{margin:1.7em 0; border:1px solid var(--line); border-radius:8px; background:var(--card)}
+#toc>summary{cursor:pointer; padding:.7em 1em; font-weight:700; list-style:none}
+#toc>summary::-webkit-details-marker{display:none}
+#toc>summary::before{content:"\25B8\00A0\00A0"; color:var(--muted)}
+#toc[open]>summary::before{content:"\25BE\00A0\00A0"}
+#toc .toc{padding:0 1.1em .9em}
+#toc ul{margin:.2em 0; padding-left:1.1em; list-style:none}
+#toc>.toc>ul{padding-left:0}
+#toc li{margin:.18em 0}
+#toc ul ul{font-size:.93em}
+#toc ul ul a{color:var(--muted)}
+#toc a{text-decoration:none}
+#toc a:hover{text-decoration:underline}
+
+/* ---- 표 ---- */
+table{width:100%; border-collapse:collapse; margin:1.2em 0; font-size:.95em}
+caption{position:absolute; width:1px; height:1px; margin:-1px; padding:0;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0}
+th,td{border-bottom:1px solid var(--line); padding:.6em .7em; text-align:left; vertical-align:top}
+thead th{background:var(--thead); border-bottom:2px solid var(--line); font-weight:700; white-space:nowrap}
+tbody tr.past{opacity:.6}
+tbody tr.now{background:var(--now-bg)}
+tbody tr.now td{border-bottom-color:var(--now-line)}
+tbody tr.now td:first-child{border-left:4px solid var(--now-line); padding-left:calc(.7em - 4px)}
+.badge{display:inline-block; margin-left:.5em; padding:.05em .55em; border:1px solid var(--now-line);
+  border-radius:999px; background:var(--now-bg); color:var(--now-fg);
+  font-size:.78em; font-weight:700; white-space:nowrap}
+
+footer{margin-top:3.2em; padding-top:1em; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.9em}
+
+/* ---- 좁은 화면: 4열 이상 표를 카드형으로 ---- */
+@media (max-width:700px){
+  body{font-size:16px; padding:22px 14px 48px}
+  h1{font-size:1.5em}
+  table.cards{font-size:1em; margin:1.1em 0}
+  table.cards,table.cards tbody,table.cards tr,table.cards td{display:block; width:100%}
+  table.cards thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+  table.cards tr{margin:0 0 12px; padding:10px 12px; background:var(--card);
+    border:1px solid var(--line); border-left:4px solid var(--line); border-radius:8px}
+  table.cards td{border:0; padding:3px 0 3px 5.6em; display:block; position:relative}
+  table.cards td::before{content:attr(data-label); position:absolute; left:0; top:3px;
+    width:5em; color:var(--muted); font-weight:700; font-size:.86em; line-height:1.95}
+  table.cards td:empty{display:none}
+  table.cards tr.now{border-left-color:var(--now-line); background:var(--now-bg)}
+  table.cards tr.now td:first-child{border-left:0; padding-left:5.6em}
+}
+
+/* ---- 인쇄 (A4) ---- */
+@media print{
+  :root{
+    --bg:#fff; --fg:#000; --muted:#333; --line:#999; --accent:#000;
+    --thead:#eee; --card:#fff; --now-bg:transparent; --now-line:#999; --now-fg:#000;
+  }
+  @page{size:A4; margin:16mm}
+  body{max-width:none; padding:0; font-size:10.5pt; line-height:1.55}
+  #toc{display:none}
+  .badge{display:none}
+  tbody tr.past{opacity:1}
+  tbody tr.now{background:none}
+  tbody tr.now td:first-child{border-left:0; padding-left:.7em}
+  a{color:#000; text-decoration:none}
+  table{font-size:9.5pt}
+  thead{display:table-header-group}
+  tr,thead,caption,blockquote,li{break-inside:avoid; page-break-inside:avoid}
+  h1,h2,h3,h4{break-after:avoid; page-break-after:avoid}
+}
+</style>
+</head>
+<body>
+<h1 id="construction-management">건설관리 (Construction Management)</h1>
+<p><strong>2026학년도 2학기</strong> | 교과목번호 4013.308 (001) | 3학점<br />
+<strong>강의시간</strong> 화·목 14:00–15:15<br />
+<strong>담당교수</strong> 안창범 (cbahn@snu.ac.kr, 02-880-7064)<br />
+<strong>대상</strong> 건축공학과 학부생 | <strong>평가</strong> 상대평가 (A~F)</p>
+<details id="toc"><summary>목차</summary><div class="toc">
+<ul>
+<li><a href="#_1">수업목표</a></li>
+<li><a href="#_2">주차별 강의계획</a><ul>
+<li><a href="#part-i">Part I. 계약관리</a></li>
+<li><a href="#part-ii">Part II. 공정관리</a></li>
+<li><a href="#part-iii">Part III. 원가관리·견적</a></li>
+</ul>
+</li>
+<li><a href="#_3">평가방법</a><ul>
+<li><a href="#40">조별 과제 (40%)</a></li>
+<li><a href="#15">개인 과제 (15%)</a></li>
+<li><a href="#_4">출석 규정</a></li>
+</ul>
+</li>
+<li><a href="#_5">팀 과제</a><ul>
+<li><a href="#93">팀 구성 (제출: 9/3)</a></li>
+<li><a href="#915-922">주제별 찬반토론 (9/15, 9/22)</a></li>
+<li><a href="#106">건설공사 계약분쟁 사례 발표 (10/6)</a></li>
+<li><a href="#contech-121">Contech 기업 사례조사 발표 (12/1)</a></li>
+<li><a href="#1215-1217">[기말] 팀 프로젝트: 건설 물량산출 자동화 (12/15 발표 / 12/17 제출)</a></li>
+</ul>
+</li>
+<li><a href="#ai">생성형 AI 도구 활용 방침</a></li>
+<li><a href="#_6">교재 및 참고문헌</a></li>
+<li><a href="#_7">정원 외 신청</a></li>
+<li><a href="#_8">수강생 참고사항</a></li>
+<li><a href="#_9">장애학생 지원사항</a></li>
+</ul>
+</div>
+</details><script>if(matchMedia("(min-width:701px)").matches)document.getElementById("toc").open=true;</script><hr />
+<h2 id="_1">수업목표</h2>
+<p>건설프로젝트의 효과적 수행을 위한 건설관리의 필요성을 이해하고, 기본 이론과 기법을 토대로 계약·공정·원가 관리의 절차와 방법을 학습한다.</p>
+<ul>
+<li><strong>[목표 1]</strong> 건설관리의 개념과 요소 기술의 이해</li>
+<li><strong>[목표 2]</strong> 건설 프로젝트의 계약 구조와 참여주체 간 권한·책임 관계의 이해</li>
+<li><strong>[목표 3]</strong> 공정관리·원가관리 기법을 직접 계산·적용하고 그 전제와 한계를 설명할 수 있는 능력</li>
+<li><strong>[목표 4]</strong> 산출 규칙을 스스로 정의하고, 자동화된 결과를 수작업 결과와 대조해 오차의 원인을 규명할 수 있는 능력</li>
+</ul>
+<hr />
+<h2 id="_2">주차별 강의계획</h2>
+<h3 id="part-i">Part I. 계약관리</h3>
+<table class="cards">
+<caption>Part I. 계약관리</caption>
+<thead>
+<tr>
+<th scope="col">주차</th>
+<th scope="col">날짜</th>
+<th scope="col">주제</th>
+<th scope="col">강의자료</th>
+<th scope="col">비고</th>
+</tr>
+</thead>
+<tbody>
+<tr data-date="2026-09-01"><td data-label="주차">1</td><td data-label="날짜">9/1 (화)</td><td data-label="주제">강의 소개 / 건설관리 개관 — CM의 학문적 위치, 산업 현황, 프로젝트 생애주기, 관리의 5대 목표</td><td data-label="강의자료">lec00</td><td data-label="비고">팀 구성 안내</td></tr>
+<tr data-date="2026-09-03"><td data-label="주차">1</td><td data-label="날짜">9/3 (목)</td><td data-label="주제"><strong>계약관리 1</strong> — 건설사업 관계자와 감리·CM 제도: 4대 주체, 건설업 등록(2022 대개편), 감리제도 변천, 감독 권한대행</td><td data-label="강의자료">lec01</td><td data-label="비고"><strong>팀 구성 제출</strong></td></tr>
+<tr data-date="2026-09-08"><td data-label="주차">2</td><td data-label="날짜">9/8 (화)</td><td data-label="주제"><strong>계약관리 2</strong> — 공공 공사 계약절차 13단계: 예정가격, 입찰공고·현장설명 기한, 각종 보증, 준공검사, 지체상금</td><td data-label="강의자료">lec01</td><td data-label="비고"></td></tr>
+<tr data-date="2026-09-10"><td data-label="주차">2</td><td data-label="날짜">9/10 (목)</td><td data-label="주제"><strong>계약관리 3</strong> — 발주·계약방식의 분류와 CM 유형: 일괄/분할/공동도급, DBB·DB·턴키, CM for Fee / CM at Risk, GMP</td><td data-label="강의자료">lec02</td><td data-label="비고"></td></tr>
+<tr data-date="2026-09-15"><td data-label="주차">3</td><td data-label="날짜">9/15 (화)</td><td data-label="주제"><strong>계약관리 4</strong> — 입찰·낙찰제도와 대가지불 방식: 제한경쟁, 언밸런스 입찰, 종합심사낙찰제, 총액/단가/실비정산, 민간투자사업</td><td data-label="강의자료">lec02</td><td data-label="비고"><strong>주제토론 1</strong></td></tr>
+<tr data-date="2026-09-17"><td data-label="주차">3</td><td data-label="날짜">9/17 (목)</td><td data-label="주제"><strong>계약관리 5</strong> — 계약금액 조정과 분쟁 해결: 물가변동·설계변경·기타 3사유, 조정 절차와 기한, 클레임 유형, 조정·중재·소송</td><td data-label="강의자료">lec18 (신규)</td><td data-label="비고">분쟁사례 발표 준비 착수</td></tr>
+</tbody>
+</table>
+<h3 id="part-ii">Part II. 공정관리</h3>
+<table class="cards">
+<caption>Part II. 공정관리</caption>
+<thead>
+<tr>
+<th scope="col">주차</th>
+<th scope="col">날짜</th>
+<th scope="col">주제</th>
+<th scope="col">강의자료</th>
+<th scope="col">비고</th>
+</tr>
+</thead>
+<tbody>
+<tr data-date="2026-09-22"><td data-label="주차">4</td><td data-label="날짜">9/22 (화)</td><td data-label="주제"><strong>공정관리 1</strong> — 계획과 스케줄링 개요, 공정표 기법 개관</td><td data-label="강의자료">Lec03</td><td data-label="비고"><strong>주제토론 2</strong></td></tr>
+<tr data-date="2026-09-24"><td data-label="주차">4</td><td data-label="날짜">9/24 (목)</td><td data-label="주제"><em>추석 연휴 — 휴강</em></td><td data-label="강의자료"></td><td data-label="비고">보강 (추후 공지)</td></tr>
+<tr data-date="2026-09-29"><td data-label="주차">5</td><td data-label="날짜">9/29 (화)</td><td data-label="주제"><strong>공정관리 2</strong> — AON 네트워크와 일정 계산: 전진·후진 계산, TF/FF, Critical Path</td><td data-label="강의자료">Lec03</td><td data-label="비고"></td></tr>
+<tr data-date="2026-10-01"><td data-label="주차">5</td><td data-label="날짜">10/1 (목)</td><td data-label="주제"><strong>공정관리 3</strong> — PDM 심화: Lead/Lag, 논리관계 4종, Time-Scaled Diagram, 달력일 환산</td><td data-label="강의자료">Lec04</td><td data-label="비고">분쟁사례 선정 사유 제출</td></tr>
+<tr data-date="2026-10-06"><td data-label="주차">6</td><td data-label="날짜">10/6 (화)</td><td data-label="주제"><strong>건설공사 계약분쟁 사례 발표</strong></td><td data-label="강의자료"></td><td data-label="비고">팀 과제 1</td></tr>
+<tr data-date="2026-10-08"><td data-label="주차">6</td><td data-label="날짜">10/8 (목)</td><td data-label="주제"><strong>공정관리 4</strong> — 공정표의 운용과 계약조항: Milestone, Time Contingency, Look-ahead, 공정표 제출·승인, 지연의 귀책, Float의 귀속</td><td data-label="강의자료">Lec04</td><td data-label="비고"></td></tr>
+<tr data-date="2026-10-13"><td data-label="주차">7</td><td data-label="날짜">10/13 (화)</td><td data-label="주제"><strong>공정관리 5</strong> — PERT와 확률적 공정계획</td><td data-label="강의자료">Lec05</td><td data-label="비고"></td></tr>
+<tr data-date="2026-10-15"><td data-label="주차">7</td><td data-label="날짜">10/15 (목)</td><td data-label="주제"><strong>공정관리 6</strong> — 공기단축 (Project Crashing): Cost Slope, 최소비용점</td><td data-label="강의자료">Lec06</td><td data-label="비고"></td></tr>
+<tr data-date="2026-10-20"><td data-label="주차">8</td><td data-label="날짜">10/20 (화)</td><td data-label="주제"><strong>공정관리 7</strong> — 자원관리와 자원 평준화</td><td data-label="강의자료">Lec07</td><td data-label="비고"></td></tr>
+<tr data-date="2026-10-22"><td data-label="주차">8</td><td data-label="날짜">10/22 (목)</td><td data-label="주제"><strong>클레임 및 분쟁 특강</strong> (외부 강사)</td><td data-label="강의자료"></td><td data-label="비고"></td></tr>
+<tr data-date="2026-10-27"><td data-label="주차">9</td><td data-label="날짜">10/27 (화)</td><td data-label="주제"><strong>공정관리 8</strong> — 선형 공정계획 (LOB / LSM)</td><td data-label="강의자료">Lec08</td><td data-label="비고"></td></tr>
+<tr data-date="2026-10-29"><td data-label="주차">9</td><td data-label="날짜">10/29 (목)</td><td data-label="주제"><strong>공정관리 9</strong> — 공정 컨트롤과 획득가치관리(EVM)</td><td data-label="강의자료">Lec09</td><td data-label="비고"><strong>개인과제 1 제출</strong></td></tr>
+<tr data-date="2026-11-03"><td data-label="주차">10</td><td data-label="날짜">11/3 (화)</td><td data-label="주제"><strong>공정관리 10</strong> — 공기지연 분석: 지연의 유형과 동시지연, As-planned vs As-built, Impacted As-planned, TIA, Windows Analysis</td><td data-label="강의자료">lec19 (신규)</td><td data-label="비고"></td></tr>
+<tr data-date="2026-11-05"><td data-label="주차">10</td><td data-label="날짜">11/5 (목)</td><td data-label="주제"><strong>중간고사</strong></td><td data-label="강의자료"></td><td data-label="비고"></td></tr>
+<tr><td data-label="주차">보강</td><td data-label="날짜">추후 공지</td><td data-label="주제"><strong>공정관리 11</strong> — Lean 건설과 Last Planner System: 계획과 실행의 괴리, Pull Planning, 제약 제거, PPC</td><td data-label="강의자료">lec20 (신규)</td><td data-label="비고"></td></tr>
+</tbody>
+</table>
+<h3 id="part-iii">Part III. 원가관리·견적</h3>
+<table class="cards">
+<caption>Part III. 원가관리·견적</caption>
+<thead>
+<tr>
+<th scope="col">주차</th>
+<th scope="col">날짜</th>
+<th scope="col">주제</th>
+<th scope="col">강의자료</th>
+<th scope="col">비고</th>
+</tr>
+</thead>
+<tbody>
+<tr data-date="2026-11-10"><td data-label="주차">11</td><td data-label="날짜">11/10 (화)</td><td data-label="주제"><strong>견적 1</strong> — 견적 개론: 견적의 종류와 정확도, 개산견적 4기법, 적산 실무 체계, 공사비 분류체계</td><td data-label="강의자료">Lec10</td><td data-label="비고"><strong>기말 프로젝트 도면 배포</strong></td></tr>
+<tr data-date="2026-11-12"><td data-label="주차">11</td><td data-label="날짜">11/12 (목)</td><td data-label="주제"><strong>견적 2</strong> — 개산견적: 공사비지수, 시점·위치·규모 보정</td><td data-label="강의자료">Lec11</td><td data-label="비고">개인과제 2 배포</td></tr>
+<tr data-date="2026-11-17"><td data-label="주차">12</td><td data-label="날짜">11/17 (화)</td><td data-label="주제"><strong>견적 3</strong> — 공사 도면과 시방서의 이해</td><td data-label="강의자료">Lec10_1</td><td data-label="비고"></td></tr>
+<tr data-date="2026-11-19"><td data-label="주차">12</td><td data-label="날짜">11/19 (목)</td><td data-label="주제"><strong>견적 4</strong> — 콘크리트·거푸집 적산</td><td data-label="강의자료">Lec14</td><td data-label="비고"></td></tr>
+<tr data-date="2026-11-24"><td data-label="주차">13</td><td data-label="날짜">11/24 (화)</td><td data-label="주제"><strong>견적 5</strong> — 철근 적산</td><td data-label="강의자료">Lec15</td><td data-label="비고"><strong>개인과제 2 제출</strong> / 개인과제 3 배포</td></tr>
+<tr data-date="2026-11-26"><td data-label="주차">13</td><td data-label="날짜">11/26 (목)</td><td data-label="주제"><strong>견적 6</strong> — BIM 기반 물량산출(QTO)과 적산 자동화: 수량산출기준의 규칙 구조, 모델 정보와 산출 규칙의 대응, 자동화가 실패하는 지점</td><td data-label="강의자료">lec21 (신규)</td><td data-label="비고"></td></tr>
+<tr data-date="2026-12-01"><td data-label="주차">14</td><td data-label="날짜">12/1 (화)</td><td data-label="주제"><strong>Contech 기업 사례조사 발표</strong></td><td data-label="강의자료"></td><td data-label="비고">팀 과제 2</td></tr>
+<tr data-date="2026-12-03"><td data-label="주차">14</td><td data-label="날짜">12/3 (목)</td><td data-label="주제"><strong>견적 7</strong> — 철골 적산 / 정미량·소요량·할증 총정리</td><td data-label="강의자료">Lec16</td><td data-label="비고"></td></tr>
+<tr data-date="2026-12-08"><td data-label="주차">15</td><td data-label="날짜">12/8 (화)</td><td data-label="주제"><strong>견적 8</strong> — 토공사 적산: 토량 환산, 터파기, 장비 효율과 조합토공</td><td data-label="강의자료">Lec12·Lec13</td><td data-label="비고"><strong>개인과제 3 제출</strong></td></tr>
+<tr data-date="2026-12-10"><td data-label="주차">15</td><td data-label="날짜">12/10 (목)</td><td data-label="주제"><strong>물량산출 자동화 클리닉</strong> — 팀별 중간점검, 검증 방법론</td><td data-label="강의자료">워크시트</td><td data-label="비고"></td></tr>
+<tr data-date="2026-12-15"><td data-label="주차">16</td><td data-label="날짜">12/15 (화)</td><td data-label="주제"><strong>기말 팀 프로젝트 발표 및 라이브 시연</strong></td><td data-label="강의자료"></td><td data-label="비고">팀 과제 3</td></tr>
+<tr data-date="2026-12-17"><td data-label="주차">16</td><td data-label="날짜">12/17 (목)</td><td data-label="주제"><strong>건설 ESG와 학기 마무리</strong></td><td data-label="강의자료">Lec17</td><td data-label="비고"><strong>최종 산출물 제출</strong></td></tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_3">평가방법</h2>
+<table>
+<caption>평가방법</caption>
+<thead>
+<tr>
+<th scope="col">성적영역</th>
+<th scope="col">비율</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>출석</td><td>10%</td></tr>
+<tr><td>태도 및 참여</td><td>10%</td></tr>
+<tr><td>개인 과제 (3회)</td><td>15%</td></tr>
+<tr><td>조별 과제</td><td>40%</td></tr>
+<tr><td>중간고사</td><td>25%</td></tr>
+<tr><td><strong>합계</strong></td><td><strong>100%</strong></td></tr>
+</tbody>
+</table>
+<h3 id="40">조별 과제 (40%)</h3>
+<table>
+<caption>조별 과제 (40%)</caption>
+<thead>
+<tr>
+<th scope="col">과제</th>
+<th scope="col">배점</th>
+<th scope="col">시기</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>주제별 찬반토론 (2회)</td><td>6%</td><td>9/15, 9/22</td></tr>
+<tr><td>건설공사 계약분쟁 사례 발표</td><td>10%</td><td>10/6</td></tr>
+<tr><td>Contech 기업 사례조사 발표</td><td>10%</td><td>12/1</td></tr>
+<tr><td>기말: 건설 물량산출 자동화</td><td>14%</td><td>12/15 발표 / 12/17 제출</td></tr>
+</tbody>
+</table>
+<h3 id="15">개인 과제 (15%)</h3>
+<table>
+<caption>개인 과제 (15%)</caption>
+<thead>
+<tr>
+<th scope="col">과제</th>
+<th scope="col">내용</th>
+<th scope="col">제출</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>개인 1</td><td>CPM 네트워크 작성 및 일정 계산 (Lag·FF/SS 혼합)</td><td>10/29</td></tr>
+<tr><td>개인 2</td><td>개산견적 — 시점·위치·규모 결합 보정</td><td>11/24</td></tr>
+<tr><td>개인 3</td><td>부분 도면 수작업 물량산출</td><td>12/8</td></tr>
+</tbody>
+</table>
+<p>개인과제 3의 수작업 산출값이 기말 팀 프로젝트의 <strong>검증 기준선</strong>이 된다.</p>
+<h3 id="_4">출석 규정</h3>
+<p>수업일수의 1/3을 초과하여 결석하면 성적은 "F" 또는 "U"가 된다(학칙 제85조). 결석에 대하여 교원에게 별도로 출석인정을 받은 경우는 예외로 할 수 있다.</p>
+<hr />
+<h2 id="_5">팀 과제</h2>
+<h3 id="93">팀 구성 (제출: 9/3)</h3>
+<p><strong>Team diversity is essential</strong> — 국적, 전공, 성별, 나이, 고향, 복학 여부, 인턴십 경험, 향후 진로 계획 등.</p>
+<p>제출물: 팀 구성 명단 + Team Diversity Report(1페이지) + 팀 리더 명기. 팀 다양성은 최종 팀 성적 평가에 반영한다.</p>
+<p><strong>팀 운영 규칙</strong></p>
+<ul>
+<li>교수자는 팀 내 갈등 해결에 관여하지 않는다.</li>
+<li>기여 불균형은 Self &amp; Teammate Assessment Grade Proposal을 통해 성적에 반영한다(낮은 동료평가를 받은 구성원의 점수를 높은 평가를 받은 구성원에게 이전).</li>
+<li>학기 중 팀 변경은 불가하다. 단, 팀 합의 시 분할할 수 있으며 각 서브팀은 독립된 팀으로서 모든 산출물에 책임을 진다.</li>
+</ul>
+<h3 id="915-922">주제별 찬반토론 (9/15, 9/22)</h3>
+<p><strong>토론 주제</strong></p>
+<ul>
+<li><strong>1차 (9/15)</strong> 공공공사 물가변동 조정의 90일·3% 요건을 폐지 또는 완화해야 하는가?</li>
+<li><strong>2차 (9/22)</strong> 공사현장에서 하청 노조의 단체교섭 상대는 원청 건설사여야 하는가?</li>
+</ul>
+<p><strong>진행 규칙</strong></p>
+<ul>
+<li>찬반 배정은 <strong>입론 직전 추첨</strong>으로 결정한다. 양쪽 논거를 모두 준비해야 한다.</li>
+<li><strong>자료팩은 당일 배포</strong>한다. 서로 상충하는 자료(통계, 판례, 업계 의견서, 노동계 자료)가 포함되며, 입론·반론에서 자료팩 인용이 의무다.</li>
+<li>상대 발언 중 <strong>POI(Point of Information)</strong> 요청이 가능하며, 발언자는 수용 여부를 즉석에서 판단한다. POI 요청·응답의 질이 평가에 포함된다.</li>
+<li>평가는 준비 자료가 아니라 <strong>현장 대응</strong>에 가중치를 둔다.</li>
+</ul>
+<p><strong>시간 구성 (팀당)</strong>: 입론 4분 → POI 포함 교차질의 6분 → 반론 3분 → 최종발언 2분</p>
+<h3 id="106">건설공사 계약분쟁 사례 발표 (10/6)</h3>
+<p>실제 국내 법원 판결 또는 대한상사중재원 중재판정을 대상으로, <strong>당사자의 주장을 재현</strong>하는 역할극 형식이다. 자유 토론이 아니라 <strong>실제 서면에 기록된 논거의 복원</strong>이 목적이다.</p>
+<p><strong>진행 방식</strong></p>
+<ul>
+<li>팀 내에서 한 학생은 원고(발주자 또는 시공자), 다른 학생은 피고를 대리한다.</li>
+<li>사실관계 → 쟁점 → 양측 주장과 근거 조항 → 1심·2심 판단 순으로 재구성한다.</li>
+<li><strong>최종심 결론은 발표 마지막에 공개</strong>한다. 청중은 결론을 모르는 상태에서 양측 주장을 듣고 자체 판단을 먼저 제시한다.</li>
+</ul>
+<p><strong>대상 사건 유형(예시)</strong>: 지체상금 감액, 설계변경에 따른 계약금액 조정, 공기연장 추가비용, 하자담보책임 기간, 물가변동 배제특약의 효력, 추가공사 대금</p>
+<p><strong>제출물</strong></p>
+<ol>
+<li>사건 선정 사유 — <strong>10/1까지 ETL 사전 제출</strong> (중복 방지)</li>
+<li>쟁점 정리표 (쟁점 / 원고 주장 / 피고 주장 / 근거 법령·계약조항 / 심급별 판단)</li>
+<li>발표자료 + 발표 (팀당 15분 + Q&amp;A 5분)</li>
+</ol>
+<p><strong>1차 자료 채널</strong>: 대법원 종합법률정보, 나의사건검색, 대한상사중재원, 국토교통부 하자심사·분쟁조정위원회, 건설분쟁조정위원회</p>
+<h3 id="contech-121">Contech 기업 사례조사 발표 (12/1)</h3>
+<p>국내외 건설기술(Contech) 기업 1개사를 선정하여 4주간 조사한다.</p>
+<p><strong>핵심 원칙: 홈페이지·보도자료 외의 1차 자료를 반드시 포함할 것</strong></p>
+<table>
+<caption>Contech 기업 사례조사 발표 (12/1)</caption>
+<thead>
+<tr>
+<th scope="col">자료 등급</th>
+<th scope="col">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>★★★</td><td>고객사·재직자 직접 인터뷰, 현장 적용 사례 확인</td></tr>
+<tr><td>★★</td><td>DART 공시(재무제표, 사업보고서), KIPRIS 특허, 채용공고의 요구 기술스택</td></tr>
+<tr><td>★</td><td>언론 보도, 투자 IR 자료</td></tr>
+<tr><td>—</td><td>회사 홈페이지 소개 문구 (단독 근거로 인정 불가)</td></tr>
+</tbody>
+</table>
+<p><strong>필수 답변 항목</strong></p>
+<ol>
+<li>이 회사는 <strong>누가 무엇을 대신해주기 때문에</strong> 돈을 버는가? (수익 구조를 공정·원가 관점에서 설명)</li>
+<li>이 기술이 대체하는 <strong>기존 업무 방식</strong>은 무엇이며, 그 방식의 실제 비용은 얼마인가?</li>
+<li>도입을 가로막는 <strong>비기술적 장애 요인</strong>은 무엇인가? (계약 구조, 책임 소재, 인력, 발주 관행)</li>
+<li>특허·채용공고에서 읽히는 <strong>다음 2년의 방향</strong>은?</li>
+</ol>
+<p><strong>제출물</strong>: 리서치 로그(주차별 조사 내용·담당자·확인한 1차 자료) + 발표자료 + 발표 15분 + Q&amp;A 10분</p>
+<h3 id="1215-1217">[기말] 팀 프로젝트: 건설 물량산출 자동화 (12/15 발표 / 12/17 제출)</h3>
+<p>교수자가 배포하는 <strong>공통 도면 세트</strong>를 대상으로, 지정 공종의 물량을 자동 산출하는 도구를 구현하고 <strong>수작업 산출 결과와 대조하여 검증</strong>한다.</p>
+<p><strong>대상 공종 (팀별 2개 선택)</strong></p>
+<table>
+<caption>[기말] 팀 프로젝트: 건설 물량산출 자동화 (12/15 발표 / 12/17 제출)</caption>
+<thead>
+<tr>
+<th scope="col">공종</th>
+<th scope="col">해당 강의</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>콘크리트</td><td>견적 4 (11/19)</td></tr>
+<tr><td>거푸집</td><td>견적 4 (11/19)</td></tr>
+<tr><td>철근</td><td>견적 5 (11/24)</td></tr>
+<tr><td>철골</td><td>견적 7 (12/3)</td></tr>
+</tbody>
+</table>
+<p><strong>구현 수단은 자유</strong> — Python(ifcopenshell, ezdxf 등), Revit Dynamo, Excel/VBA, AutoCAD 스크립트, 오픈소스 BIM 도구, 이미지·PDF 기반 인식 등. 단 <strong>재현 가능해야 한다</strong>(실행 방법 문서화 + 동일 입력에 동일 출력).</p>
+<p><strong>제출물</strong></p>
+<table>
+<caption>[기말] 팀 프로젝트: 건설 물량산출 자동화 (12/15 발표 / 12/17 제출) — 표 2</caption>
+<thead>
+<tr>
+<th scope="col">산출물</th>
+<th scope="col">설명</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>① 자동화 도구</td><td>실행 가능한 코드/스크립트 + 실행 매뉴얼</td></tr>
+<tr><td>② 산출 규칙 매핑표</td><td>「건축공사 수량산출기준」 및 강의 산식의 <strong>어느 조항</strong>을 <strong>어떤 논리</strong>로 구현했는지 1:1 대응표. 구현하지 못한 조항은 이유 명시</td></tr>
+<tr><td>③ 검증 리포트</td><td>개인과제 3의 수작업 산출값 대비 오차율과 <strong>불일치 항목별 원인 분석</strong></td></tr>
+<tr><td>④ 한계 분석</td><td>자동화가 실패하는 조건(도면 표기 누락, 예외 규정, 판단이 필요한 부위 등)과 실패 사례 최소 3건</td></tr>
+<tr><td>⑤ AI 활용 로그</td><td>어떤 작업에 AI를 사용했고, 어떤 오류를 발견해 어떻게 수정했는지</td></tr>
+<tr><td>⑥ 발표 + 라이브 시연</td><td>15분 발표 + 시연 + Q&amp;A 10분</td></tr>
+</tbody>
+</table>
+<p><strong>라이브 시연</strong>: 발표 현장에서 교수자가 도면 조건 하나(부재 치수, 개구부 크기, 층고)를 변경하도록 요청한다. 그 자리에서 입력을 수정해 재산출하고 결과 변화를 설명해야 한다.</p>
+<p><strong>평가 배점 (100점)</strong></p>
+<table>
+<caption>[기말] 팀 프로젝트: 건설 물량산출 자동화 (12/15 발표 / 12/17 제출) — 표 3</caption>
+<thead>
+<tr>
+<th scope="col">항목</th>
+<th scope="col">배점</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>산출 규칙 정의의 정확성 (기준 조항 해석)</td><td>25</td></tr>
+<tr><td>구현 완성도 및 재현 가능성</td><td>20</td></tr>
+<tr><td>검증의 엄밀성 (비교 방법, 오차 원인 규명)</td><td>25</td></tr>
+<tr><td>한계 분석 및 고찰의 깊이</td><td>15</td></tr>
+<tr><td>발표·라이브 시연·Q&amp;A 대응</td><td>15</td></tr>
+</tbody>
+</table>
+<blockquote>
+<p>코드를 잘 짜는 팀이 아니라, <strong>왜 값이 틀렸는지 설명할 수 있는 팀</strong>이 높은 점수를 받는 구조다. 자동화 결과가 수작업과 일치하는 것보다 불일치를 정확히 진단하는 것이 학습 목표에 부합한다.</p>
+</blockquote>
+<hr />
+<h2 id="ai">생성형 AI 도구 활용 방침</h2>
+<p>본 강의에서는 과제 수행 시 생성형 AI를 자유롭게 활용할 수 있다. 다만 아래 원칙을 반드시 준수해야 한다.</p>
+<ol>
+<li><strong>자율적 활용, 결과는 본인 책임</strong> — AI의 오류(허위 정보, 존재하지 않는 판례·조문, 논리적 오류)를 검증하지 않고 제출·발표하여 발생하는 불이익은 전적으로 학생의 책임이다.</li>
+<li><strong>비판적 검증 필수</strong> — AI 결과물을 그대로 복사·붙여넣기 할 수 없으며, 팀원의 비판적 검토와 재해석을 거쳐 최종 자료를 구성해야 한다.</li>
+<li><strong>1차 자료 원칙</strong> — 판결문·공시·법령·품셈·도면 등 1차 자료는 반드시 원문을 확인하고 출처(사건번호, 조항 번호, 공시일자)를 명기해야 한다. AI가 요약한 2차 정보만으로 작성된 부분은 감점 대상이다.</li>
+<li><strong>활용 기록</strong> — 기말 프로젝트에 한해 AI 활용 로그를 별지로 제출한다. 사용 자체는 감점 요인이 아니며, <strong>기록하지 않은 사용</strong>이 감점 요인이다.</li>
+<li><strong>구두 방어</strong> — 모든 발표 과제는 Q&amp;A와 실연을 포함한다. 제출물의 내용을 설명하지 못하는 경우 해당 항목은 인정되지 않는다.</li>
+</ol>
+<hr />
+<h2 id="_6">교재 및 참고문헌</h2>
+<p><strong>교재</strong>: N/A (Class Note)</p>
+<p><strong>참고문헌</strong></p>
+<ul>
+<li>건설관리개론 (서울대학교 건설기술연구실, 구미서관, ISBN 9791162571224)</li>
+<li>건설공사관리 실제: 계약·적산·공정 기반, 제2판 (박홍태, 구미서관)</li>
+<li>건설관리학 총서 1–4 (한국건설관리학회, CIR)</li>
+<li>Dykstra, A. <em>Construction in Project Management: A Complete Introduction</em> (ISBN 9780982703434)</li>
+<li>Schaufelberger, J. &amp; Holm, L. <em>Management of Construction Projects: A Contractor's Perspective</em> (ISBN 9781032495965)</li>
+<li>Kenley, R. &amp; Seppänen, O. <em>Location-Based Management for Construction</em></li>
+</ul>
+<p><strong>법령·기준 (학기 중 참조)</strong></p>
+<ul>
+<li>국가를 당사자로 하는 계약에 관한 법률 시행령·시행규칙, (계약예규) 공사계약일반조건</li>
+<li>건축공사 수량산출기준, 건설공사 표준품셈, 표준시장단가</li>
+<li>국토교통부 건설산업 BIM 기본지침(2020) 및 시행지침(2022)</li>
+<li>AACE International RP 29R-03 <em>Forensic Schedule Analysis</em>, SCL <em>Delay and Disruption Protocol</em> 2nd ed.</li>
+</ul>
+<hr />
+<h2 id="_7">정원 외 신청</h2>
+<p>수용가능인원 최대 10명</p>
+<hr />
+<h2 id="_8">수강생 참고사항</h2>
+<ul>
+<li><strong>면담시간·장소</strong>: 별도 공지</li>
+<li><strong>주요 수업방식</strong>: 이론 강의 + 프로젝트 (토론 및 발표 병행)</li>
+<li>모든 팀 발표는 Q&amp;A를 포함하며, 발표자 지정은 발표 직전에 이루어질 수 있다.</li>
+<li>강의자료 및 공지는 ETL을 통해 배포한다.</li>
+</ul>
+<hr />
+<h2 id="_9">장애학생 지원사항</h2>
+<p><strong>강의수강 관련</strong></p>
+<ul>
+<li>시각장애: 교재 제작(디지털교재, 점자교재, 확대교재 등), 대필도우미 허용</li>
+<li>지체장애: 교재 제작(디지털교재), 대필도우미 및 수업보조 도우미 허용</li>
+<li>청각장애: 대필 및 문자통역 도우미 활동 허용, 강의 녹취 허용</li>
+<li>건강장애: 질병 등으로 인한 결석에 대한 출석 인정, 대필도우미 허용</li>
+<li>학습장애: 대필도우미 허용</li>
+<li>지적장애/자폐성장애: 대필도우미 및 수업 멘토 허용</li>
+</ul>
+<p><strong>과제 및 평가 관련</strong></p>
+<ul>
+<li>시각·지체·청각·건강·학습장애: 과제 제출기한 연장, 과제 제출 및 응답 방식의 조정, 평가 시간 연장, 평가 문항 제시 및 응답 방식의 조정, 별도 고사실 제공</li>
+<li>지적장애/자폐성장애: 개별화 과제 제출 및 대체 평가 실시</li>
+</ul>
+<p>본 강의를 수강하는 장애학생에게는 이상의 지원 서비스 외에도 개별 특성과 요구에 따라 지도교수 및 장애학생지원센터와의 상담을 통해 적절한 수준의 지원 서비스를 제공한다.</p>
+<p><strong>문의</strong>: 담당교수 안창범(02-880-7064), 장애학생지원센터(02-880-8787)</p>
+<footer><p>최종 수정: 2026-09-08</p></footer>
+<script>
+(function(){
+  var rows=Array.prototype.slice.call(document.querySelectorAll('tr[data-date]'));
+  if(!rows.length)return;
+  var n=new Date(), p=function(v){return (v<10?'0':'')+v;};
+  var today=n.getFullYear()+'-'+p(n.getMonth()+1)+'-'+p(n.getDate()), next=null;
+  rows.forEach(function(r){
+    var d=r.getAttribute('data-date');
+    if(d<today){r.className+=' past';} else if(!next){next=r;}
+  });
+  if(!next)return;
+  var exact=next.getAttribute('data-date')===today;
+  next.className+=' now';
+  var cell=next.querySelector('[data-label="날짜"]')||next.cells[1]||next.cells[0];
+  var b=document.createElement('span');
+  b.className='badge';
+  b.textContent=exact?'오늘':'다음 수업';
+  cell.appendChild(b);
+})();
+</script>
+</body>
+</html>
